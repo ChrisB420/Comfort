@@ -1,0 +1,683 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comfort Wasikhongo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0f0f0f;
+      color: #f2f2f2;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: #111;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      animation: fadeDown 1s ease-out;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #e0b74d;
+      max-width: 100px;
+      margin-bottom: 10px;
+    }
+    .intro {
+      max-width: 700px;
+      margin: 2rem auto;
+      text-align: center;
+      font-size: 1.2rem;
+      line-height: 1.8;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      background-color: #1a1a1a;
+    }
+    .artwork {
+      background: #222;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(224, 183, 77, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .artwork:hover {
+      transform: scale(1.03);
+    }
+    .artwork img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .artwork h3 {
+      color: #e0b74d;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin: 0 0 0.5rem 0;
+    }
+    .artwork p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #111;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    }
+  
+    header img {
+      max-width: 100px;
+      margin-bottom: 10px;
+    }
+    h1 {
+      margin: 10px 0;
+      font-size: 24px;
+    }
+    img{
+        float: right;
+      
+    }
+    .container {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .section-title {
+      font-size: 22px;
+      margin-top: 40px;
+      color: #0056b3;
+      border-bottom: 3px solid #0056b3;
+      padding-bottom: 8px;
+      animation: slideIn 1s;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .gallery img {
+      width: 100%;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .events iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      margin-top: 10px;
+    }
+    .events .button {
+      display: inline-block;
+      margin: 10px 10px 0 0;
+      padding: 10px 20px;
+      background: #e60000;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .events .button:hover {
+      background: #b80000;
+    }
+    .nav-toggle {
+      display: none;
+    }
+    nav {
+      background: #003d80;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .contact-form {
+      margin-top: 30px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .contact-form button {
+      padding: 10px 20px;
+      background: #0056b3;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .contact-form button:hover {
+      background: #003d80;
+    }
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 12px;
+      border-radius: 50%;
+      font-size: 20px;
+      z-index: 1000;
+    }
+    footer {
+      text-align: center;
+      background: #002c5f;
+      color: white;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    @keyframes fadeDown {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes slideIn {
+      from {opacity: 0; transform: translateX(-100px);}
+      to {opacity: 1; transform: translateX(0);}
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #003d80;
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        width: 200px;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .nav-toggle {
+        display: block;
+        font-size: 22px;
+        cursor: pointer;
+      }
+    }
+    /* Lightbox */
+#lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #000;
+}
+
+#lightbox span {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+#lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #000;
+}
+
+#lightbox span#closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#prevBtn, #nextBtn {
+  position: absolute;
+  top: 50%;
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px;
+  transform: translateY(-50%);
+}
+
+#prevBtn { left: 30px; }
+#nextBtn { right: 30px; }
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  * {box-sizing: border-box;}
+body {font-family: Verdana, sans-serif;}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/7 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+  </style>
+</head>
+<body>
+      <nav>
+    <div class="logo">Comfort_wasikhongo</div>
+    <div class="nav-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+  </nav>
+  <img  src="Comfort.jpeg" alt="Comfort_wasikhongo">
+  <ul id="menu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="constitution.pdf" download>Download PDF</a></li>
+    </ul>
+  <header>
+    <h1>Comfort Wasikhongo  </h1>
+     
+  </header>
+ 
+  <div class="section-title" id="about">About Comfort Wasikhongo</div>
+    <p>
+        Comfort M. Wasikhongo is an American painter of African American and Kenyan heritage. Born and raised in Madison, Wasikhongo earned recognition as an artist as early as elementary school. After high school, Wasikhongo studied a year at Florida A & M University in Tallahassee, which helped him develop a social outlook that he brings to his artwork. This consciousness further deepened when he moved to Chicago to attend Chicago State University, where he studied weightlifting and art. Returning home, he completed his B.F.A. at the University of Wisconsin-Madison and earned a full graduate studies fellowship to Tyler School of the Arts, where he earned a M.F.A. in painting and taught studio as a teaching assistant.
+
+Wasikhongo’s paintings are a continuum of his personal, creative, and intellectual interests. For a number of years he has painted portraits of bodybuilders and hip-hop singers and musicians, inspired by the bodybuilders’ aesthetics and discipline and by hip-hop culture’s music, rhyming, and social criticism. More recently, Wasikhongo has focused on painting portraits of legendary African American intellectuals. He has exhibited in solo and group shows in Madison, Racine, and Philadelphia.</br>
+
+
+      Comfort M. Wasikhongo is a visionary painter whose roots in African American and Kenyan heritage shape a powerful body of work.
+      From the discipline of bodybuilders to the voice of hip-hop to the grace of intellectual ancestors — his art lives and breathes strength,
+      culture, and consciousness.
+    </p>
+    <p>Comfort focuses on portraiture, particularly of bodybuilders and influential cultural male figures. He uses collage and painting to merge historical and personal narratives—celebrities and friends. Through these juxtapositions, Comfort sparks deeper conversation, sharing his knowledge and unique perspective with viewers.</p>
+    <div class="section-title" id="events">Event Highlights</div>
+<div class="events">
+    
+  <p>View photos and videos from our latest events:</p>
+  <a href="gallery.html" class="button" target="_blank">View Photo</a>
+  <a href="https://www.facebook.com/615588866206235" class="button" target="_blank">Watch Event Video</a>
+</div>
+  </div> 
+  <h2>OVETURE GALLERY III </h2>
+<p>Change image every 2 seconds:</p>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 7</div>
+  <img src="Showroom.jpg" style="width:100%">
+  <div class="text">Caption Text</div>
+</div>
+<div class="mySlides fade">
+  <div class="numbertext">2 / 7</div>
+  <img src="Showroom2.jpg" style="width:100%">
+  <div class="text">Caption Two</div>
+</div>
+<div class="mySlides fade">
+  <div class="numbertext">3 / 7</div>
+  <img src="Showroom3.jpg" style="width:100%">
+  <div class="text">Caption Three</div>
+</div>
+<div class="mySlides fade">
+  <div class="numbertext">4 / 7</div>
+  <img src="Showroom4.jpg" style="width:100%">
+  <div class="text">Caption Three</div>
+</div>
+<div class="mySlides fade">
+  <div class="numbertext">5 / 7</div>
+  <img src="Showroom5.jpg" style="width:100%">
+  <div class="text">Caption Three</div>
+</div>
+<div class="mySlides fade">
+  <div class="numbertext">6 / 7</div>
+  <img src="Rock.jpg" style="width:100%">
+  <div class="text">Caption Three</div>
+</div>
+<div class="mySlides fade">
+  <div class="numbertext">7 / 7</div>
+  <img src="Bro.jpg" style="width:100%">
+  <div class="text">Caption Three</div>
+</div>
+
+</div>
+<br>
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+  <section class="artwork">
+       <div class="gallery">
+     <h3>bodybuilders artwork</h3>
+      <img src="Flex.jpg" alt="Bodybuilder art">
+<p>Visual depth meets intellectual fire in this portrait of a scholar.</p>
+    </div>
+     <div class="gallery">
+        <h3>Ronnie Coleman</h3>
+      <img src="RRRColeman.jpg" alt="Ronnie Coleman Painting">
+      <p>Power, motion, and energy — painted through the frame of a legend.</p>
+    </div>
+       <div class="gallery">
+          <h3>Jim Jones, 2012</h3>
+      <img src="jim jones1.jpg" alt="Jim Jones Rapper Spotlight">
+    
+      <p>A vibrant spotlight on the charisma and rhythm of hip-hop expression.</p>
+    </div>
+      <div class="gallery">
+          
+     <h3>JOAB AND GIDEON </h3>
+      <img src="Family.jpg" alt="Family Portrait">
+<p>Visual depth meets intellectual fire in this portrait of a scholar.</p>
+    </div>
+    <div class="gallery">
+          <h3>Booker T. Washington, 2020</h3>
+      <img src="Comfort-Wasikhongo_Booker-T-Washington_oil-painting_2020.jpg" alt="Booker T. Washington Painting">
+      <p>Oil painting capturing the powerful resolve of an iconic leader.</p>
+    </div>
+    <div class="gallery">
+     <h3>E. Franklin Frazier, 2020</h3>
+      <img src="E-Franklin_Frazier-Comfort-Wasikhongo_oil_2020.jpg" alt="E. Franklin Frazier Portrait">
+<p>Visual depth meets intellectual fire in this portrait of a scholar.</p>
+    </div>
+   
+ 
+  </section>  <script>
+      let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+  </script>
+<script>
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('active');
+    }
+  </script>
+  <div id="lightbox">
+  <span onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" src="" alt="Expanded Photo">
+</div>
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+
+  document.querySelectorAll('.gallery img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.style.display = 'none';
+  }
+
+  // Close if you click outside image
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox || e.target.tagName === 'SPAN') {
+      closeLightbox();
+    }
+  });
+</script>
+<div id="lightbox">
+  <span id="closeBtn">&times;</span>
+  <img id="lightbox-img" src="" alt="Expanded Photo">
+  <div id="prevBtn">&#10094;</div>
+  <div id="nextBtn">&#10095;</div>
+</div>
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('closeBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const images = Array.from(document.querySelectorAll('.gallery img'));
+
+  let currentIndex = 0;
+
+  function showImage(index) {
+    if (index < 0) index = images.length - 1;
+    if (index >= images.length) index = 0;
+    currentIndex = index;
+    lightboxImg.src = images[currentIndex].src;
+    lightbox.style.display = 'flex';
+  }
+
+  images.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      showImage(index);
+    });
+  });
+
+  closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+  prevBtn.addEventListener('click', () => showImage(currentIndex - 1));
+  nextBtn.addEventListener('click', () => showImage(currentIndex + 1));
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) lightbox.style.display = 'none';
+  });
+
+  // Swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  lightbox.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  lightbox.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchEndX < touchStartX - 50) showImage(currentIndex + 1);
+    if (touchEndX > touchStartX + 50) showImage(currentIndex - 1);
+  });
+</script>
+<script>
+  const images = document.querySelectorAll('.gallery img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.createElement('img');
+  const closeBtn = document.createElement('span');
+  const prevBtn = document.createElement('div');
+  const nextBtn = document.createElement('div');
+  let currentIndex = 0;
+
+  // Setup lightbox structure
+  lightbox.appendChild(lightboxImg);
+  closeBtn.innerHTML = '&times;';
+  closeBtn.id = 'closeBtn';
+  prevBtn.id = 'prevBtn';
+  nextBtn.id = 'nextBtn';
+  prevBtn.innerHTML = '&#10094;';
+  nextBtn.innerHTML = '&#10095;';
+  lightbox.appendChild(closeBtn);
+  lightbox.appendChild(prevBtn);
+  lightbox.appendChild(nextBtn);
+
+  // Show lightbox
+  images.forEach((img, i) => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+      currentIndex = i;
+    });
+  });
+
+  // Close lightbox
+  closeBtn.onclick = () => lightbox.style.display = 'none';
+
+  // Navigate prev/next
+  prevBtn.onclick = () => showImage(currentIndex - 1);
+  nextBtn.onclick = () => showImage(currentIndex + 1);
+
+  function showImage(index) {
+    if (index < 0) index = images.length - 1;
+    if (index >= images.length) index = 0;
+    lightboxImg.src = images[index].src;
+    currentIndex = index;
+  }
+
+  // Mobile swipe support
+  let touchStartX = 0;
+  lightbox.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  lightbox.addEventListener('touchend', e => {
+    let touchEndX = e.changedTouches[0].screenX;
+    if (touchEndX < touchStartX - 50) nextBtn.click();
+    if (touchEndX > touchStartX + 50) prevBtn.click();
+  });
+</script>
+<div class="section-title" id="contact">Contact Us</div>
+<form class="contact-form">
+  <input type="text" placeholder="Your Name" required>
+  <input type="email" placeholder="Your Email" required>
+  <textarea placeholder="Your Message" rows="5" required></textarea>
+  <button type="submit">Send Message</button>
+</form>
+ </div><a class="whatsapp" href="https://wa.me/254720228622" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <footer>
+    Created with love and respect | Art by Comfort Wasikhongo
+  </footer>
+</body>
+</html>
